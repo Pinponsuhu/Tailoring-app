@@ -39,14 +39,16 @@ Widget buildCustomerBlock(
           name!,
           style: TextStyle(
               fontSize: 22,
-              fontWeight: FontWeight.w500,
+              fontFamily: "Lato",
+              fontWeight: FontWeight.bold,
               color: Colors.indigo[800]),
         ),
         SizedBox(height: 12),
         Text(
           phone!.toString(),
           style: TextStyle(
-              fontSize: 18,
+              fontSize: 17,
+              fontFamily: "Lato",
               fontWeight: FontWeight.w500,
               color: Colors.indigo[800]),
         ),

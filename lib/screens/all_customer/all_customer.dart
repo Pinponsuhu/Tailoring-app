@@ -13,27 +13,99 @@ class _AllCustomerState extends State<AllCustomer> {
     {
       'name': "Pinponsuhu Joseph",
       'gender': "Male",
-      'phone': 09078810948,
+      'phone': "09078810948",
       'category': "Shirt"
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
-      'phone': 09075510948,
+      'phone': "09075510948",
       'category': "Cap"
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
-      'phone': 09078810948,
+      'phone': "09078810948",
       'category': "Skirt"
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
-      'phone': 08055068262,
+      'phone': "08055068262",
       'category': "Skirt"
-    }
+    },
+    {
+      'name': "Pinponsuhu Joshua",
+      'gender': "Male",
+      'phone': "09075510948",
+      'category': "Cap"
+    },
+    {
+      'name': "Pinponsuhu Joy",
+      'gender': "Female",
+      'phone': "09078810948",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Opeyemi",
+      'gender': "Female",
+      'phone': "08055068262",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Joshua",
+      'gender': "Male",
+      'phone': "09075510948",
+      'category': "Cap"
+    },
+    {
+      'name': "Pinponsuhu Joy",
+      'gender': "Female",
+      'phone': "09078810948",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Opeyemi",
+      'gender': "Female",
+      'phone': "08055068262",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Joshua",
+      'gender': "Male",
+      'phone': "09075510948",
+      'category': "Cap"
+    },
+    {
+      'name': "Pinponsuhu Joy",
+      'gender': "Female",
+      'phone': "09078810948",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Opeyemi",
+      'gender': "Female",
+      'phone': "08055068262",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Joshua",
+      'gender': "Male",
+      'phone': "09075510948",
+      'category': "Cap"
+    },
+    {
+      'name': "Pinponsuhu Joy",
+      'gender': "Female",
+      'phone': "09078810948",
+      'category': "Skirt"
+    },
+    {
+      'name': "Pinponsuhu Opeyemi",
+      'gender': "Female",
+      'phone': "08055068262",
+      'category': "Skirt"
+    },
   ];
 
   @override
@@ -44,7 +116,7 @@ class _AllCustomerState extends State<AllCustomer> {
           backgroundColor: Colors.indigo[900],
           title: Text(
             "All Customer",
-            style: TextStyle(color: Colors.yellow[600]),
+            style: TextStyle(color: Colors.yellow[600], fontFamily: "Lato"),
           ),
         ),
         body: SingleChildScrollView(
@@ -58,18 +130,29 @@ class _AllCustomerState extends State<AllCustomer> {
                   textAlign: TextAlign.left,
                   "All Customer Details",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
+                      fontFamily: "Lato",
                       color: Colors.grey[700],
                       fontWeight: FontWeight.bold),
                 ),
                 Divider(
                   height: 30,
                 ),
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: customers.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) =>
+                      customerList(
+                          name: customers[index]['name'] as String,
+                          number: customers[index]['phone'] as String),
+                ),
               ],
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          elevation: 0,
           backgroundColor: Colors.yellow[600],
           onPressed: null,
           child: Icon(color: Colors.indigo[900], Icons.add),

@@ -7,7 +7,7 @@ Widget buildCategories({String? category}) {
       TextButton(
         style: ButtonStyle(
             padding: MaterialStateProperty.all(
-                EdgeInsets.symmetric(horizontal: 25, vertical: 16)),
+                EdgeInsets.symmetric(horizontal: 35, vertical: 10)),
             backgroundColor: MaterialStateProperty.all(Colors.indigo[900])),
         onPressed: () {
           print(category);
@@ -15,6 +15,7 @@ Widget buildCategories({String? category}) {
         child: Text(
           category!,
           style: TextStyle(
+            fontFamily: "Lato",
             color: Colors.yellow[500],
             fontSize: 17,
           ),
