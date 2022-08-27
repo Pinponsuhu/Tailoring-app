@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                               horizontal: 15, vertical: 18),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: Colors.yellow[600],
+                            color: Colors.indigo.shade100,
                           ),
                           child: Column(
                             children: [
@@ -154,7 +154,7 @@ class _HomeState extends State<Home> {
                                     padding: EdgeInsets.symmetric(vertical: 14),
                                     child: Text(
                                       textAlign: TextAlign.center,
-                                      "Shaba",
+                                      "Continue",
                                       style: TextStyle(
                                           color: Colors.yellow[600],
                                           fontSize: 18,

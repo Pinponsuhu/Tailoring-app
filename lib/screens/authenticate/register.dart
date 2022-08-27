@@ -24,17 +24,17 @@ class _RegisterState extends State<Register> {
                   child: Column(
                 children: [
                   SizedBox(
-                    height: 60,
+                    height: 40,
                   ),
                   Image(
-                    height: 110,
-                    width: 110,
+                    height: 100,
+                    width: 100,
                     image: AssetImage('assets/logo.png'),
                   ),
                 ],
               )),
               SizedBox(
-                height: 25,
+                height: 20,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 30),
@@ -44,18 +44,18 @@ class _RegisterState extends State<Register> {
                     Text(
                       "Register",
                       style: TextStyle(
-                          fontSize: 26.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.indigo[900]),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Colors.indigo.shade100,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
@@ -70,14 +70,14 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 15,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Colors.indigo.shade100,
                           borderRadius: BorderRadius.circular(4)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -92,14 +92,14 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 15,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Colors.indigo.shade100,
                           borderRadius: BorderRadius.circular(4)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -114,7 +114,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 14,
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -122,7 +122,7 @@ class _RegisterState extends State<Register> {
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 18.0),
+                            horizontal: 40, vertical: 15.0),
                         child: Text(
                           "Register",
                           style: TextStyle(fontSize: 18),

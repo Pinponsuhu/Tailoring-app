@@ -20,15 +20,15 @@ class _LoginState extends State<Login> {
           child: Column(
             children: [
               //logo goes here
+              SizedBox(
+                height: 40,
+              ),
               Container(
                   child: Column(
                 children: [
-                  SizedBox(
-                    height: 60,
-                  ),
                   Image(
-                    height: 110,
-                    width: 110,
+                    height: 100,
+                    width: 100,
                     image: AssetImage('assets/logo.png'),
                   ),
                 ],
@@ -44,18 +44,18 @@ class _LoginState extends State<Login> {
                     Text(
                       "Login",
                       style: TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.indigo[900]),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Colors.indigo.shade100,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
@@ -70,14 +70,14 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 14,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Colors.indigo.shade100,
                           borderRadius: BorderRadius.circular(4)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -92,15 +92,15 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(
-                      height: 18,
+                      height: 15,
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        print("shaba");
+                        Navigator.pushNamed(context, '/home');
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 18.0),
+                            horizontal: 40, vertical: 15.0),
                         child: Text(
                           "Login",
                           style: TextStyle(fontSize: 18),

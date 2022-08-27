@@ -112,11 +112,11 @@ class _AllCustomerState extends State<AllCustomer> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0.2,
           backgroundColor: Colors.indigo[900],
           title: Text(
             "All Customer",
-            style: TextStyle(color: Colors.yellow[600], fontFamily: "Lato"),
           ),
         ),
         body: SingleChildScrollView(
@@ -154,7 +154,9 @@ class _AllCustomerState extends State<AllCustomer> {
         floatingActionButton: FloatingActionButton(
           elevation: 0,
           backgroundColor: Colors.yellow[600],
-          onPressed: null,
+          onPressed: () {
+            Navigator.pushNamed(context, '/add');
+          },
           child: Icon(color: Colors.indigo[900], Icons.add),
         ));
   }

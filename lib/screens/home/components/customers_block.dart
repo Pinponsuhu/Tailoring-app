@@ -19,7 +19,7 @@ Widget buildCustomerBlock(
           offset: Offset(0, 3), // changes position of shadow
         ),
       ],
-      color: Colors.yellow[600],
+      color: Colors.indigo.shade100,
       borderRadius: BorderRadius.circular(6),
     ),
     margin: EdgeInsets.only(right: 20),

@@ -42,7 +42,7 @@ class _AuthenticatedState extends State<Authenticated> {
                   text: "Home",
                 ),
                 GButton(
-                  icon: Icons.search,
+                  icon: Icons.list_alt,
                   text: "Search",
                 ),
                 GButton(

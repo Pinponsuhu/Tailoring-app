@@ -16,7 +16,7 @@ Widget buildCategories({String? category}) {
           category!,
           style: TextStyle(
             fontFamily: "Lato",
-            color: Colors.yellow[500],
+            color: Colors.yellow[600],
             fontSize: 17,
           ),
         ),
