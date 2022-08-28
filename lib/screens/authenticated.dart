@@ -4,6 +4,7 @@ import 'package:tailor_measurement/screens/favorites/favorite.dart';
 import 'package:tailor_measurement/screens/home/home.dart';
 import 'package:tailor_measurement/components/bottom_nav.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:tailor_measurement/screens/settings/setting.dart';
 
 class Authenticated extends StatefulWidget {
   Authenticated({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class Authenticated extends StatefulWidget {
 }
 
 class _AuthenticatedState extends State<Authenticated> {
-  var screens = [Home(), AllCustomer(), Favorite(), AllCustomer()];
+  var screens = [Home(), AllCustomer(), Favorite(), Settings()];
   int screenIndex = 0;
   @override
   Widget build(BuildContext context) {

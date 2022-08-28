@@ -111,6 +111,7 @@ class _AllCustomerState extends State<AllCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0.2,

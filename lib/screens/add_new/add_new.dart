@@ -11,6 +11,7 @@ class _AddNewState extends State<AddNew> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0.2,
           backgroundColor: Colors.indigo[900],
