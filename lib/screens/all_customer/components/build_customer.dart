@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget customerList({String? name, String? number}) {
+Widget customerList(
+    {required String name, required String number, required bool isFav}) {
   return SizedBox(
       child: Column(
     children: [
@@ -12,7 +13,7 @@ Widget customerList({String? name, String? number}) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name!,
+                name,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -23,7 +24,7 @@ Widget customerList({String? name, String? number}) {
                 height: 7,
               ),
               Text(
-                number!,
+                number,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -33,10 +34,12 @@ Widget customerList({String? name, String? number}) {
             ],
           ),
           IconButton(
-            onPressed: null,
+            onPressed: () {
+              isFav = !isFav;
+            },
             icon: Icon(
-              Icons.favorite_border_outlined,
-              color: Colors.indigo[900],
+              isFav == false ? Icons.favorite_border_outlined : Icons.favorite,
+              color: isFav == false ? Colors.indigo[900] : Colors.yellow[600],
             ),
           )
         ],

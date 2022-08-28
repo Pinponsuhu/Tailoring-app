@@ -14,97 +14,113 @@ class _AllCustomerState extends State<AllCustomer> {
       'name': "Pinponsuhu Joseph",
       'gender': "Male",
       'phone': "09078810948",
-      'category': "Shirt"
+      'category': "Shirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
       'phone': "09075510948",
-      'category': "Cap"
+      'category': "Cap",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
       'phone': "09078810948",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': false
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
       'phone': "09075510948",
-      'category': "Cap"
+      'category': "Cap",
+      'isFavorite': false
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
       'phone': "09078810948",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
       'phone': "09075510948",
-      'category': "Cap"
+      'category': "Cap",
+      'isFavorite': false
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
       'phone': "09078810948",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': false
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
       'phone': "09075510948",
-      'category': "Cap"
+      'category': "Cap",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
       'phone': "09078810948",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': false
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joshua",
       'gender': "Male",
       'phone': "09075510948",
-      'category': "Cap"
+      'category': "Cap",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Joy",
       'gender': "Female",
       'phone': "09078810948",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
     {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
-      'category': "Skirt"
+      'category': "Skirt",
+      'isFavorite': true
     },
   ];
 
@@ -146,7 +162,8 @@ class _AllCustomerState extends State<AllCustomer> {
                   itemBuilder: (BuildContext context, int index) =>
                       customerList(
                           name: customers[index]['name'] as String,
-                          number: customers[index]['phone'] as String),
+                          number: customers[index]['phone'] as String,
+                          isFav: customers[index]['isFavorite'] as bool),
                 ),
               ],
             ),
@@ -156,7 +173,25 @@ class _AllCustomerState extends State<AllCustomer> {
           elevation: 0,
           backgroundColor: Colors.yellow[600],
           onPressed: () {
-            Navigator.pushNamed(context, '/add');
+            showModalBottomSheet(
+              context: context,
+              builder: (context) => Column(
+                children: [
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(size: 26, Icons.close_rounded),
+                        )
+                      ]),
+                ],
+              ),
+            );
           },
           child: Icon(color: Colors.indigo[900], Icons.add),
         ));
