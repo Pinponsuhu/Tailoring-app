@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_measurement/screens/all_customer/all_customer.dart';
+import 'package:tailor_measurement/screens/favorites/favorite.dart';
 import 'package:tailor_measurement/screens/home/home.dart';
 import 'package:tailor_measurement/components/bottom_nav.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -12,7 +13,7 @@ class Authenticated extends StatefulWidget {
 }
 
 class _AuthenticatedState extends State<Authenticated> {
-  var screens = [Home(), AllCustomer(), AllCustomer(), AllCustomer()];
+  var screens = [Home(), AllCustomer(), Favorite(), AllCustomer()];
   int screenIndex = 0;
   @override
   Widget build(BuildContext context) {

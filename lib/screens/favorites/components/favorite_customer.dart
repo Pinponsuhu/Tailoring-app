@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget customerList({String? name, String? number}) {
+Widget favoriteCustomerList({String? name, String? number}) {
   return SizedBox(
       child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,8 +36,8 @@ Widget customerList({String? name, String? number}) {
       IconButton(
         onPressed: null,
         icon: Icon(
-          Icons.favorite_border_outlined,
-          color: Colors.indigo[900],
+          Icons.favorite,
+          color: Colors.yellow[600],
         ),
       )
     ],
