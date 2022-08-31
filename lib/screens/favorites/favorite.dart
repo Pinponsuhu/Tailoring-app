@@ -48,7 +48,7 @@ class _FavoriteState extends State<Favorite> {
               "All Favorite Customers",
               style: TextStyle(
                   fontSize: 18,
-                  fontFamily: "Lato",
+                  fontFamily: "Poppins",
                   color: Colors.grey[700],
                   fontWeight: FontWeight.bold),
             ),

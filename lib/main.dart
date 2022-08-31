@@ -12,7 +12,7 @@ void main() {
       home: Authenticate(),
       routes: {
         '/home': (context) => Authenticated(),
-        '/add': (context) => AddNew(),
+        '/add-cap': (context) => AddNew(),
       }));
   FlutterNativeSplash.remove();
 }

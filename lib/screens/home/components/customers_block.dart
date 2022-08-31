@@ -39,7 +39,7 @@ Widget buildCustomerBlock(
           name!,
           style: TextStyle(
               fontSize: 22,
-              fontFamily: "Lato",
+              fontFamily: "Poppins",
               fontWeight: FontWeight.bold,
               color: Colors.indigo[800]),
         ),
@@ -48,7 +48,7 @@ Widget buildCustomerBlock(
           phone!.toString(),
           style: TextStyle(
               fontSize: 17,
-              fontFamily: "Lato",
+              fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
               color: Colors.indigo[800]),
         ),

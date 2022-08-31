@@ -102,20 +102,6 @@ class _AllCustomerState extends State<AllCustomer> {
       'isFavorite': true
     },
     {
-      'name': "Pinponsuhu Joshua",
-      'gender': "Male",
-      'phone': "09075510948",
-      'category': "Cap",
-      'isFavorite': true
-    },
-    {
-      'name': "Pinponsuhu Joy",
-      'gender': "Female",
-      'phone': "09078810948",
-      'category': "Skirt",
-      'isFavorite': true
-    },
-    {
       'name': "Pinponsuhu Opeyemi",
       'gender': "Female",
       'phone': "08055068262",
@@ -148,7 +134,7 @@ class _AllCustomerState extends State<AllCustomer> {
                   "All Customer Details",
                   style: TextStyle(
                       fontSize: 18,
-                      fontFamily: "Lato",
+                      fontFamily: "Poppins",
                       color: Colors.grey[700],
                       fontWeight: FontWeight.bold),
                 ),
@@ -175,23 +161,111 @@ class _AllCustomerState extends State<AllCustomer> {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-              builder: (context) => Column(
-                children: [
-                  Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.end,
+              builder: (context) => Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(size: 26, Icons.close_rounded),
+                          )
+                        ]),
+                    SizedBox(height: 18),
+                    Text("Select an item measurement",
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins",
+                        )),
+                    Divider(height: 28),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Spacer(),
-                        IconButton(
+                        TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/add-cap');
                           },
-                          icon: Icon(size: 26, Icons.close_rounded),
-                        )
-                      ]),
-                ],
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.blue)),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 11, horizontal: 34),
+                              child: Text("Cap",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ))),
+                        ),
+                        TextButton(
+                          onPressed: null,
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.green)),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 11, horizontal: 34),
+                              child: Text("Shirt",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ))),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 18),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/add-cap');
+                          },
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.pink)),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 11, horizontal: 34),
+                              child: Text("Skirt",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ))),
+                        ),
+                        Spacer(),
+                        TextButton(
+                          onPressed: null,
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.teal)),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 11, horizontal: 34),
+                              child: Text("Pants",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                  ))),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
+            ;
           },
           child: Icon(color: Colors.indigo[900], Icons.add),
         ));

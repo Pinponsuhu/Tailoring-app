@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
                         "Hello",
                         style: TextStyle(
                             fontSize: 18.0,
-                            fontFamily: "Lato",
+                            fontFamily: "Poppins",
                             fontWeight: FontWeight.w500,
                             color: Colors.grey[800]),
                       ),
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
                         "Pinponsuhu",
                         style: TextStyle(
                             fontSize: 26.0,
-                            fontFamily: "Lato",
+                            fontFamily: "Poppins",
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[800]),
                       ),
@@ -120,7 +120,7 @@ class _HomeState extends State<Home> {
                                           "App Name",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontFamily: "Lato",
+                                            fontFamily: "Poppins",
                                             color: Colors.indigo[900],
                                             fontSize: 18,
                                           ),
@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
                                           "Click the button below to get more information about the app",
                                           style: TextStyle(
                                             fontWeight: FontWeight.w400,
-                                            fontFamily: "Lato",
+                                            fontFamily: "Poppins",
                                             color: Colors.indigo[900],
                                             fontSize: 16,
                                           ),
@@ -158,7 +158,7 @@ class _HomeState extends State<Home> {
                                       style: TextStyle(
                                           color: Colors.yellow[600],
                                           fontSize: 18,
-                                          fontFamily: "Lato",
+                                          fontFamily: "Poppins",
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ))
