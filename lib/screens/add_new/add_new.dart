@@ -54,7 +54,7 @@ class _AddNewState extends State<AddNew> {
                         ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 15,
                       ),
                       Expanded(
                         flex: 1,

@@ -249,7 +249,9 @@ class _AllCustomerState extends State<AllCustomer> {
                         ),
                         Spacer(),
                         TextButton(
-                          onPressed: null,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/add-pant');
+                          },
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.cyan[400])),
