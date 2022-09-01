@@ -32,7 +32,7 @@ Widget buildCustomerBlock(
           gender! == 'Male' ? Icons.male : Icons.female,
         ),
         SizedBox(
-          height: 10,
+          height: 9,
         ),
         Text(
           name!,
@@ -42,7 +42,7 @@ Widget buildCustomerBlock(
               fontWeight: FontWeight.bold,
               color: Colors.indigo[800]),
         ),
-        SizedBox(height: 12),
+        SizedBox(height: 6),
         Text(
           phone!.toString(),
           style: TextStyle(
@@ -51,6 +51,16 @@ Widget buildCustomerBlock(
               fontWeight: FontWeight.w500,
               color: Colors.indigo[800]),
         ),
+        SizedBox(height: 6),
+        Text(
+          "Category: ${category!}",
+          style: TextStyle(
+            color: Colors.grey[800],
+            fontSize: 15.5,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w500,
+          ),
+        )
       ],
     ),
   );

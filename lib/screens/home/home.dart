@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tailor_measurement/components/bottom_nav.dart';
+import 'package:tailor_measurement/constants/screen_index.dart';
 import 'package:tailor_measurement/screens/home/components/categories.dart';
 import 'package:tailor_measurement/screens/home/components/customers_block.dart';
+import 'package:tailor_measurement/screens/authenticated.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -191,12 +193,17 @@ class _HomeState extends State<Home> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        GestureDetector(
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              screenIndex = 1;
+                            });
+                          },
                           child: Text(
-                            "See All",
+                            "See More",
                             style: TextStyle(
+                              fontSize: 17,
                               color: Colors.indigo[900],
-                              fontSize: 20.0,
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                             ),
@@ -208,7 +215,7 @@ class _HomeState extends State<Home> {
                   height: 20,
                 ),
                 Container(
-                  height: 235,
+                  height: 250,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

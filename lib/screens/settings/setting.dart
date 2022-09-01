@@ -61,20 +61,6 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            Divider(height: 10),
-            GestureDetector(
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 12),
-                child: Text(
-                  "FeedBack",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            Divider(height: 10),
           ],
         ),
       ),

@@ -178,7 +178,7 @@ class _AllCustomerState extends State<AllCustomer> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: Icon(size: 28, Icons.close_rounded),
+                            icon: Icon(size: 30, Icons.close),
                           )
                         ]),
                     SizedBox(height: 18),
@@ -189,7 +189,10 @@ class _AllCustomerState extends State<AllCustomer> {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins",
                         )),
-                    Divider(height: 28),
+                    Divider(
+                      height: 28,
+                      thickness: 3,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -199,7 +202,7 @@ class _AllCustomerState extends State<AllCustomer> {
                           },
                           style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(
-                                  Colors.yellow[400])),
+                                  Colors.yellow[800])),
                           child: Padding(
                               padding: EdgeInsets.symmetric(
                                   vertical: 9, horizontal: 34),
@@ -254,15 +257,18 @@ class _AllCustomerState extends State<AllCustomer> {
                           },
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.cyan[400])),
+                                  MaterialStateProperty.all(Colors.cyan[600])),
                           child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 9, horizontal: 34),
-                              child: Text("Pants",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ))),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 9, horizontal: 34),
+                            child: Text(
+                              "Pants",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     )

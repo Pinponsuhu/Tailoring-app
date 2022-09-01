@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tailor_measurement/constants/screen_index.dart';
 import 'package:tailor_measurement/screens/all_customer/all_customer.dart';
 import 'package:tailor_measurement/screens/favorites/favorite.dart';
 import 'package:tailor_measurement/screens/home/home.dart';
@@ -15,7 +16,7 @@ class Authenticated extends StatefulWidget {
 
 class _AuthenticatedState extends State<Authenticated> {
   var screens = [Home(), AllCustomer(), Favorite(), Settings()];
-  int screenIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,6 +33,7 @@ class _AuthenticatedState extends State<Authenticated> {
               tabBackgroundColor: Colors.indigo.shade700,
               gap: 10.0,
               iconSize: 22.0,
+              selectedIndex: screenIndex,
               padding: EdgeInsets.all(14),
               onTabChange: (index) {
                 setState(() {
