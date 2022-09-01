@@ -49,7 +49,7 @@ class _FavoriteState extends State<Favorite> {
               style: TextStyle(
                   fontSize: 18,
                   fontFamily: "Poppins",
-                  color: Colors.grey[700],
+                  color: Colors.black,
                   fontWeight: FontWeight.bold),
             ),
             Divider(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_measurement/screens/add_new/add_new.dart';
+import 'package:tailor_measurement/screens/add_new/new-shirt.dart';
 import 'package:tailor_measurement/screens/authenticate/authenticate.dart';
 import 'package:tailor_measurement/screens/authenticated.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -13,6 +14,7 @@ void main() {
       routes: {
         '/home': (context) => Authenticated(),
         '/add-cap': (context) => AddNew(),
+        '/add-shirt': (context) => NewShirt(),
       }));
   FlutterNativeSplash.remove();
 }

@@ -135,7 +135,7 @@ class _AllCustomerState extends State<AllCustomer> {
                   style: TextStyle(
                       fontSize: 18,
                       fontFamily: "Poppins",
-                      color: Colors.grey[700],
+                      color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
                 Divider(
@@ -161,12 +161,13 @@ class _AllCustomerState extends State<AllCustomer> {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-              builder: (context) => Padding(
+              builder: (context) => Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -177,14 +178,14 @@ class _AllCustomerState extends State<AllCustomer> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: Icon(size: 26, Icons.close_rounded),
+                            icon: Icon(size: 28, Icons.close_rounded),
                           )
                         ]),
                     SizedBox(height: 18),
                     Text("Select an item measurement",
                         style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 22,
+                          color: Colors.indigo[900],
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Poppins",
                         )),
@@ -197,11 +198,11 @@ class _AllCustomerState extends State<AllCustomer> {
                             Navigator.pushNamed(context, '/add-cap');
                           },
                           style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.blue)),
+                              backgroundColor: MaterialStateProperty.all(
+                                  Colors.yellow[400])),
                           child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: 11, horizontal: 34),
+                                  vertical: 9, horizontal: 34),
                               child: Text("Cap",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -209,13 +210,15 @@ class _AllCustomerState extends State<AllCustomer> {
                                   ))),
                         ),
                         TextButton(
-                          onPressed: null,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/add-shirt');
+                          },
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.green)),
+                                  MaterialStateProperty.all(Colors.green[400])),
                           child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: 11, horizontal: 34),
+                                  vertical: 9, horizontal: 34),
                               child: Text("Shirt",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -234,10 +237,10 @@ class _AllCustomerState extends State<AllCustomer> {
                           },
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.pink)),
+                                  MaterialStateProperty.all(Colors.pink[400])),
                           child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: 11, horizontal: 34),
+                                  vertical: 9, horizontal: 34),
                               child: Text("Skirt",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -249,10 +252,10 @@ class _AllCustomerState extends State<AllCustomer> {
                           onPressed: null,
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.teal)),
+                                  MaterialStateProperty.all(Colors.cyan[400])),
                           child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: 11, horizontal: 34),
+                                  vertical: 9, horizontal: 34),
                               child: Text("Pants",
                                   style: TextStyle(
                                     color: Colors.white,

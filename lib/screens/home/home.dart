@@ -92,9 +92,15 @@ class _HomeState extends State<Home> {
                           padding: EdgeInsets.symmetric(
                               horizontal: 15, vertical: 18),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.indigo.shade100,
-                          ),
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.indigo.shade100,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 3.0,
+                                  spreadRadius: 1.1,
+                                  color: Colors.grey.shade400,
+                                )
+                              ]),
                           child: Column(
                             children: [
                               Row(
@@ -117,7 +123,7 @@ class _HomeState extends State<Home> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "App Name",
+                                          "Measure Pen",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontFamily: "Poppins",
@@ -151,7 +157,7 @@ class _HomeState extends State<Home> {
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     width: double.infinity,
-                                    padding: EdgeInsets.symmetric(vertical: 14),
+                                    padding: EdgeInsets.symmetric(vertical: 15),
                                     child: Text(
                                       textAlign: TextAlign.center,
                                       "Continue",
@@ -171,22 +177,39 @@ class _HomeState extends State<Home> {
                   height: 20,
                 ),
                 Container(
-                  height: 55,
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) =>
-                        buildCategories(category: categories[index]),
-                  ),
-                ),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "All",
+                          style: TextStyle(
+                            color: Colors.indigo[300],
+                            fontSize: 18.0,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        GestureDetector(
+                          child: Text(
+                            "See All",
+                            style: TextStyle(
+                              color: Colors.indigo[900],
+                              fontSize: 20.0,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    )),
                 SizedBox(
                   height: 20,
                 ),
                 Container(
-                  height: 205,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  height: 235,
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: customers.length,

@@ -9,15 +9,14 @@ Widget buildCustomerBlock(
   int randomNumber = random.nextInt(colorLength);
   return Container(
     width: 220,
-    height: double.infinity,
+    height: double.infinity - 20,
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 0,
-          blurRadius: 2,
-          offset: Offset(0, 3), // changes position of shadow
-        ),
+          blurRadius: 3.0,
+          spreadRadius: 1.1,
+          color: Colors.grey.shade400,
+        )
       ],
       color: Colors.indigo.shade100,
       borderRadius: BorderRadius.circular(6),
