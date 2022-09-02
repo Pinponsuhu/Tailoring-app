@@ -18,30 +18,67 @@ class _AddNewState extends State<AddNew> {
           title: Text("Add new"),
         ),
         body: SingleChildScrollView(
-          child: Form(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Text(
-                    "Adding new Cap",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    child: Text(
+                      "Adding new Cap",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Row(
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.indigo.shade200,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: "Customer name",
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.indigo.shade200,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: TextFormField(
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        hintText: "Customer number",
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
                     children: [
                       Expanded(
                         flex: 1,
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: Colors.indigo.shade100,
+                              color: Colors.indigo.shade200,
                               borderRadius: BorderRadius.circular(8)),
                           padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                           margin: EdgeInsets.symmetric(vertical: 10),
                           child: TextFormField(
                             onChanged: null,
@@ -61,10 +98,10 @@ class _AddNewState extends State<AddNew> {
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: Colors.indigo.shade100,
+                              color: Colors.indigo.shade200,
                               borderRadius: BorderRadius.circular(8)),
                           padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+                              EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                           margin: EdgeInsets.symmetric(vertical: 10),
                           child: TextFormField(
                             onChanged: null,
@@ -78,25 +115,26 @@ class _AddNewState extends State<AddNew> {
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  margin: EdgeInsets.only(left: 20),
-                  child: ElevatedButton(
-                    onPressed: null,
-                    style: ButtonStyle(
-                      padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.indigo[900]),
+                  SizedBox(height: 10),
+                  Container(
+                    child: ElevatedButton(
+                      onPressed: null,
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 17)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.indigo[900]),
+                      ),
+                      child: Text("Add new",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: "Poopins",
+                          )),
                     ),
-                    child: Text("Add new",
-                        style: TextStyle(
-                          color: Colors.white,
-                        )),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ));
