@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_measurement/constants/colors.dart';
+import 'package:tailor_measurement/screens/authenticated.dart';
 
 class IsLoggedIn extends StatefulWidget {
   final Function toggleAuth;
@@ -10,6 +11,8 @@ class IsLoggedIn extends StatefulWidget {
 }
 
 class _IsLoggedInState extends State<IsLoggedIn> {
+  late int userPin;
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +23,7 @@ class _IsLoggedInState extends State<IsLoggedIn> {
           child: SafeArea(
             child: Form(
               autovalidateMode: AutovalidateMode.onUserInteraction,
+              key: formKey,
               child: Column(
                 children: [
                   Image(
@@ -78,7 +82,18 @@ class _IsLoggedInState extends State<IsLoggedIn> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/home');
+                            final isValidForm =
+                                formKey.currentState!.validate();
+                            if (isValidForm) {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      Authenticated(),
+                                ),
+                                (route) => false,
+                              );
+                            }
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
