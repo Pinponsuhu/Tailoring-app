@@ -24,8 +24,12 @@ class _SettingsState extends State<Settings> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/username');
+              },
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 12),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "Change Username",
                   style: TextStyle(
@@ -37,8 +41,12 @@ class _SettingsState extends State<Settings> {
             ),
             Divider(height: 10),
             GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/pin');
+              },
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 12),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "Change Pin",
                   style: TextStyle(
@@ -54,7 +62,8 @@ class _SettingsState extends State<Settings> {
                 Navigator.pushNamed(context, '/about');
               },
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 12),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "About AppName",
                   style: TextStyle(
