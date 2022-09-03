@@ -50,6 +50,9 @@ class _SettingsState extends State<Settings> {
             ),
             Divider(height: 10),
             GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/about');
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text(

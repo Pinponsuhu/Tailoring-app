@@ -5,6 +5,7 @@ import 'package:tailor_measurement/screens/add_new/new-shirt.dart';
 import 'package:tailor_measurement/screens/authenticate/authenticate.dart';
 import 'package:tailor_measurement/screens/authenticated.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:tailor_measurement/screens/settings/about.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,7 @@ void main() {
       home: Authenticate(),
       routes: {
         '/home': (context) => Authenticated(),
+        '/about': (context) => AboutApp(),
         '/add-cap': (context) => AddNew(),
         '/add-shirt': (context) => NewShirt(),
         '/add-pant': (context) => NewPant(),
