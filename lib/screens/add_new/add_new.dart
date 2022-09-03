@@ -24,13 +24,16 @@ class _AddNewState extends State<AddNew> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                    child: Text(
+                  SizedBox(
+                    height: 15
+                  ),
+                  Text(
                       "Adding new Cap",
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Poppins",),
                     ),
+                  Divider(
+                    height: 30
                   ),
                   Container(
                     decoration: BoxDecoration(

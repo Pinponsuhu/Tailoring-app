@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_measurement/screens/authenticate/login.dart';
-import 'package:tailor_measurement/screens/authenticate/register.dart';
+import 'package:tailor_measurement/screens/authenticate/isLoggedIn.dart';
+import 'package:tailor_measurement/screens/authenticate/isNew.dart';
 
 class Authenticate extends StatefulWidget {
   Authenticate({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
-  bool isLogin = true;
+  bool isLogin = false;
   void toggleAuth() {
     setState(() {
       isLogin = !isLogin;
@@ -19,6 +19,6 @@ class _AuthenticateState extends State<Authenticate> {
 
   @override
   Widget build(BuildContext context) {
-    return isLogin == true ? Login(toggleAuth) : Register(toggleAuth);
+    return isLogin == true ? IsNew(toggleAuth) : IsLoggedIn(toggleAuth);
   }
 }

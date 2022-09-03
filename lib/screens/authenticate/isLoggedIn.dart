@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_measurement/constants/colors.dart';
 
-class Login extends StatefulWidget {
+class IsLoggedIn extends StatefulWidget {
   final Function toggleAuth;
-  Login(this.toggleAuth);
+  IsLoggedIn(this.toggleAuth);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<IsLoggedIn> createState() => _IsLoggedInState();
 }
 
-class _LoginState extends State<Login> {
+class _IsLoggedInState extends State<IsLoggedIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +20,12 @@ class _LoginState extends State<Login> {
           child: Column(
             children: [
               //logo goes here
-              SizedBox(
-                height: 40,
-              ),
               Container(
                   child: Column(
                 children: [
+                  SizedBox(
+                    height: 40,
+                  ),
                   Image(
                     height: 100,
                     width: 100,
@@ -34,7 +34,7 @@ class _LoginState extends State<Login> {
                 ],
               )),
               SizedBox(
-                height: 35,
+                height: 20,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 30),
@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Login",
+                      "Welcome Back",
                       style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
@@ -57,7 +57,8 @@ class _LoginState extends State<Login> {
                       child: Padding(
                         padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
+                          maxLength: 6,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
@@ -72,37 +73,15 @@ class _LoginState extends State<Login> {
                     SizedBox(
                       height: 14,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.indigo.shade100,
-                          borderRadius: BorderRadius.circular(4)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: TextFormField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            hintText: "Password",
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                        print("shaba");
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 40, vertical: 15.0),
                         child: Text(
-                          "Login",
+                          "Continue",
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
@@ -110,29 +89,6 @@ class _LoginState extends State<Login> {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.indigo[900])),
                     ),
-                    SizedBox(
-                      height: 14,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't have an account?",
-                            style: TextStyle(fontSize: 16.5)),
-                        TextButton(
-                            onPressed: () {
-                              widget.toggleAuth();
-                            },
-                            child: Text(
-                              "Register",
-                              style: TextStyle(
-                                  color: Colors.indigo[900], fontSize: 16.5),
-                            ),
-                            style: ButtonStyle(
-                              overlayColor:
-                                  MaterialStateProperty.all(Colors.transparent),
-                            ))
-                      ],
-                    )
                   ],
                 ),
               )
