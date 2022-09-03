@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
                           padding: EdgeInsets.symmetric(
                               horizontal: 15, vertical: 18),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(4),
                               color: Colors.indigo.shade100,
                               boxShadow: [
                                 BoxShadow(
@@ -155,11 +155,11 @@ class _HomeState extends State<Home> {
                                   child: Container(
                                     margin: EdgeInsets.only(top: 2),
                                     decoration: BoxDecoration(
-                                        color: Colors.indigo[900],
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
+                                      color: Colors.indigo[900],
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
                                     width: double.infinity,
-                                    padding: EdgeInsets.symmetric(vertical: 15),
+                                    padding: EdgeInsets.symmetric(vertical: 17),
                                     child: Text(
                                       textAlign: TextAlign.center,
                                       "Continue",

@@ -21,6 +21,7 @@ class _NewPantState extends State<NewPant> {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Add new pant",
@@ -195,7 +196,7 @@ class _NewPantState extends State<NewPant> {
                         "Submit",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 17.5,
+                          fontSize: 18,
                           fontFamily: "Poppins",
                         ),
                       ),

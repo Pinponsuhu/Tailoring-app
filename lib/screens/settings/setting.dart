@@ -27,7 +27,7 @@ class _SettingsState extends State<Settings> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text(
-                  "Profile",
+                  "Change Username",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -40,7 +40,7 @@ class _SettingsState extends State<Settings> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text(
-                  "Security",
+                  "Change Pin",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,

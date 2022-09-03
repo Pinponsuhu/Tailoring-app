@@ -11,6 +11,7 @@ Widget buildCustomerBlock(
     width: 220,
     height: double.infinity - 20,
     decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(4),
       boxShadow: [
         BoxShadow(
           blurRadius: 3.0,
@@ -19,7 +20,6 @@ Widget buildCustomerBlock(
         )
       ],
       color: Colors.indigo.shade100,
-      borderRadius: BorderRadius.circular(6),
     ),
     margin: EdgeInsets.only(right: 20),
     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
