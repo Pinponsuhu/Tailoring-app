@@ -187,7 +187,7 @@ class _HomeState extends State<Home> {
                         Text(
                           "All",
                           style: TextStyle(
-                            color: Colors.indigo[300],
+                            color: Colors.indigo[400],
                             fontSize: 18.0,
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.bold,

@@ -8,6 +8,10 @@ class AddNew extends StatefulWidget {
 }
 
 class _AddNewState extends State<AddNew> {
+  final formKey = GlobalKey<FormState>();
+  late String customerName, customerNumber, capType;
+  late int circumference;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +25,7 @@ class _AddNewState extends State<AddNew> {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Form(
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -42,12 +47,25 @@ class _AddNewState extends State<AddNew> {
                     ),
                     padding: EdgeInsets.all(8),
                     child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Customer's name can't be empty";
+                        } else {
+                          return null;
+                        }
+                      },
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         hintText: "Customer name",
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          customerName = value;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(
@@ -60,12 +78,29 @@ class _AddNewState extends State<AddNew> {
                     ),
                     padding: EdgeInsets.all(8),
                     child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Customer's number can't be empty";
+                        } else if (value.length < 11) {
+                          return "Customer's number less than 11";
+                        } else if (value.length > 11) {
+                          return "Customer's number greater than 11";
+                        } else {
+                          return null;
+                        }
+                      },
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         hintText: "Customer number",
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          customerNumber = value;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(
@@ -84,11 +119,23 @@ class _AddNewState extends State<AddNew> {
                               EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                           margin: EdgeInsets.symmetric(vertical: 10),
                           child: TextFormField(
-                            onChanged: null,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Cap circumference can't be empty";
+                              } else {
+                                return null;
+                              }
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                circumference = int.parse(value);
+                              });
+                            },
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
                                 hintText: "Circumference"),
                           ),
                         ),
@@ -107,12 +154,24 @@ class _AddNewState extends State<AddNew> {
                               EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                           margin: EdgeInsets.symmetric(vertical: 10),
                           child: TextFormField(
-                            onChanged: null,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Cap type can't be empty";
+                              } else {
+                                return null;
+                              }
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                capType = value;
+                              });
+                            },
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
-                                hintText: "Height"),
+                                errorBorder: InputBorder.none,
+                                hintText: "Cap type"),
                           ),
                         ),
                       ),
@@ -121,7 +180,12 @@ class _AddNewState extends State<AddNew> {
                   SizedBox(height: 10),
                   Container(
                     child: ElevatedButton(
-                      onPressed: null,
+                      onPressed: () {
+                        final isFormValid = formKey.currentState!.validate();
+                        if (isFormValid) {
+                          print("shaba");
+                        }
+                      },
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(
                             EdgeInsets.symmetric(horizontal: 40, vertical: 17)),
