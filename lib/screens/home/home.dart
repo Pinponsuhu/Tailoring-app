@@ -151,7 +151,9 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                               TextButton(
-                                  onPressed: null,
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/about');
+                                  },
                                   child: Container(
                                     margin: EdgeInsets.only(top: 2),
                                     decoration: BoxDecoration(
