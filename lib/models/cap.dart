@@ -67,4 +67,14 @@ class Cap {
         CapFields.createdAt: createdAt.toIso8601String(),
         CapFields.isFav: isFav ? 1 : 0,
       };
+
+  static Cap fromJson(Map<String, Object?> json) => Cap(
+        id: json[CapFields.id] as int?,
+        customerName: json[CapFields.customerName] as String,
+        customerNumber: json[CapFields.customerNumber] as String,
+        circumference: json[CapFields.circumference] as String,
+        capType: json[CapFields.capType] as String,
+        createdAt: DateTime.parse(json[CapFields.createdAt] as String),
+        isFav: json[CapFields.isFav] == 1,
+      );
 }

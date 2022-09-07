@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangeUsername extends StatefulWidget {
   ChangeUsername({Key? key}) : super(key: key);
@@ -10,6 +11,22 @@ class ChangeUsername extends StatefulWidget {
 class _ChangeUsernameState extends State<ChangeUsername> {
   final formKey = GlobalKey<FormState>();
   String newUsername = "";
+  late String username;
+
+  Future<void> getUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('username')!;
+    });
+    print(username);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUsername();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +52,7 @@ class _ChangeUsernameState extends State<ChangeUsername> {
                     child: TextFormField(
                       readOnly: true,
                       decoration: InputDecoration(
-                        hintText: "Pinponsuhu",
+                        hintText: "${username}",
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         errorBorder: InputBorder.none,

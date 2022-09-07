@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailor_measurement/constants/colors.dart';
+import 'package:tailor_measurement/db/app_db.dart';
+import 'package:tailor_measurement/models/user.dart';
+import 'package:tailor_measurement/screens/authenticated.dart';
 
 class IsNew extends StatefulWidget {
   final Function toggleAuth;
@@ -10,6 +14,8 @@ class IsNew extends StatefulWidget {
 }
 
 class _IsNewState extends State<IsNew> {
+  final formKey = GlobalKey<FormState>();
+  late String userName, userPin;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +24,7 @@ class _IsNewState extends State<IsNew> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Form(
+            key: formKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Center(
               child: Column(
@@ -62,6 +69,18 @@ class _IsNewState extends State<IsNew> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
+                              onChanged: (value) {
+                                setState(() {
+                                  userName = value;
+                                });
+                              },
+                              validator: (value) {
+                                if (value == null || value == "") {
+                                  return "Username caanot be empty";
+                                } else {
+                                  return null;
+                                }
+                              },
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -84,7 +103,20 @@ class _IsNewState extends State<IsNew> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
-                              obscureText: true,
+                              onChanged: (value) {
+                                setState(() {
+                                  userPin = value;
+                                });
+                              },
+                              maxLength: 6,
+                              validator: (value) {
+                                if (value == null || value.length != 6) {
+                                  return "Pin must be six digits";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 focusedBorder: InputBorder.none,
@@ -100,8 +132,26 @@ class _IsNewState extends State<IsNew> {
                           height: 15,
                         ),
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/home');
+                          onPressed: () async {
+                            final isValidForm =
+                                formKey.currentState!.validate();
+
+                            if (isValidForm) {
+                              print(userName);
+                              final user =
+                                  User(username: userName, pin: userPin);
+                              await AppDataBase.instance.createUser(user);
+                              print("User Added");
+                              setDetails(userName, userPin);
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      Authenticated(),
+                                ),
+                                (route) => false,
+                              );
+                            }
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -126,5 +176,11 @@ class _IsNewState extends State<IsNew> {
         ),
       ),
     );
+  }
+
+  Future<void> setDetails(String? username, String? pin) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('username', userName);
+    prefs.setString('pin', userPin);
   }
 }

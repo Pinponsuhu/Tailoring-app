@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tailor_measurement/db/app_db.dart';
+import 'package:tailor_measurement/models/cap.dart';
 
 class AddNew extends StatefulWidget {
   AddNew({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class AddNew extends StatefulWidget {
 class _AddNewState extends State<AddNew> {
   final formKey = GlobalKey<FormState>();
   late String customerName, customerNumber, capType;
-  late int circumference;
+  late String circumference;
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +130,7 @@ class _AddNewState extends State<AddNew> {
                             },
                             onChanged: (value) {
                               setState(() {
-                                circumference = int.parse(value);
+                                circumference = value;
                               });
                             },
                             keyboardType: TextInputType.phone,
@@ -166,7 +168,7 @@ class _AddNewState extends State<AddNew> {
                                 capType = value;
                               });
                             },
-                            keyboardType: TextInputType.phone,
+                            keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
@@ -180,10 +182,21 @@ class _AddNewState extends State<AddNew> {
                   SizedBox(height: 10),
                   Container(
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         final isFormValid = formKey.currentState!.validate();
                         if (isFormValid) {
-                          print("shaba");
+                          final cap = Cap(
+                              customerName: customerName,
+                              customerNumber: customerNumber,
+                              capType: capType,
+                              circumference: circumference,
+                              createdAt: DateTime.now(),
+                              isFav: false);
+
+                          await AppDataBase.instance.createCap(cap);
+                          print(cap.customerName);
+
+                          Navigator.pushNamed(context, '/home');
                         }
                       },
                       style: ButtonStyle(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailor_measurement/components/bottom_nav.dart';
 import 'package:tailor_measurement/constants/screen_index.dart';
+import 'package:tailor_measurement/db/app_db.dart';
+import 'package:tailor_measurement/models/cap.dart';
 import 'package:tailor_measurement/screens/home/components/categories.dart';
 import 'package:tailor_measurement/screens/home/components/customers_block.dart';
 import 'package:tailor_measurement/screens/authenticated.dart';
@@ -17,6 +20,10 @@ class _HomeState extends State<Home> {
   List<String> categories = ['All', 'Shirt', 'Pants', 'Cap'];
 
   bool homeBanner = true;
+
+  String? username;
+
+  late List<Cap> all;
 
   var customers = [
     {
@@ -44,6 +51,27 @@ class _HomeState extends State<Home> {
       'category': "Skirt"
     }
   ];
+
+  Future allCap() async {
+    this.all = await AppDataBase.instance.readCap();
+  }
+
+  Future getUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('username')!;
+    });
+    print(username);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    allCap();
+    getUsername();
+    print(all);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,12 +98,12 @@ class _HomeState extends State<Home> {
                             color: Colors.grey[800]),
                       ),
                       SizedBox(
-                        height: 6,
+                        height: 1,
                       ),
                       Text(
-                        "Pinponsuhu",
+                        "${username}",
                         style: TextStyle(
-                            fontSize: 26.0,
+                            fontSize: 24.0,
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[800]),
@@ -187,30 +215,14 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "All",
+                          "Recently added",
                           style: TextStyle(
-                            color: Colors.indigo[400],
-                            fontSize: 18.0,
+                            color: Colors.indigo[700],
+                            fontSize: 17.0,
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              screenIndex = 1;
-                            });
-                          },
-                          child: Text(
-                            "See More",
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.indigo[900],
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
                       ],
                     )),
                 SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailor_measurement/constants/colors.dart';
 import 'package:tailor_measurement/screens/authenticated.dart';
 
@@ -11,8 +12,26 @@ class IsLoggedIn extends StatefulWidget {
 }
 
 class _IsLoggedInState extends State<IsLoggedIn> {
-  late int userPin;
+  late String userPin;
+  late String userName;
   final formKey = GlobalKey<FormState>();
+  late String sharedPin;
+
+  Future getUserPin() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      sharedPin = prefs.getString('pin')!;
+      userName = prefs.getString('username')!;
+    });
+    print(sharedPin);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUserPin();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +59,7 @@ class _IsLoggedInState extends State<IsLoggedIn> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome Back",
+                          "Welcome Back, ${userName}",
                           style: TextStyle(
                               fontSize: 24.0,
                               fontWeight: FontWeight.bold,
@@ -55,6 +74,11 @@ class _IsLoggedInState extends State<IsLoggedIn> {
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: TextFormField(
+                                onChanged: (value) {
+                                  setState(() {
+                                    userPin = value;
+                                  });
+                                },
                                 maxLength: 6,
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
@@ -84,15 +108,17 @@ class _IsLoggedInState extends State<IsLoggedIn> {
                           onPressed: () {
                             final isValidForm =
                                 formKey.currentState!.validate();
-                            if (isValidForm) {
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      Authenticated(),
-                                ),
-                                (route) => false,
-                              );
+                            if (userPin == sharedPin) {
+                              if (isValidForm) {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Authenticated(),
+                                  ),
+                                  (route) => false,
+                                );
+                              }
                             }
                           },
                           child: Padding(

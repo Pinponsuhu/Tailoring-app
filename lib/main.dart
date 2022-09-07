@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailor_measurement/screens/add_new/add_new.dart';
 import 'package:tailor_measurement/screens/add_new/new-pant.dart';
 import 'package:tailor_measurement/screens/add_new/new-shirt.dart';
@@ -12,6 +13,7 @@ import 'package:tailor_measurement/screens/settings/user/change_username.dart';
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // SharedPreferences.setMockInitialValues({});
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Authenticate(),
